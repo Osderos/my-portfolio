@@ -1,6 +1,9 @@
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Image from "../dummyPortrait.jpg";
-import StyledButton from "./Button";
+import StyledButton from "../components/Button/Button"
+import HomeWrapper from "./Containers/Container";
 import { device } from "../utils/mediaQueries";
 import {
   SlideFromTop,
@@ -8,8 +11,14 @@ import {
   SlideButton,
   ProfilePictureRotate,
 } from "./Animations/Slide";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 function Home() {
+  const navigate = useNavigate();
+
+  const toMain = () => navigate("/main");
+
   return (
     <HomeWrapper>
       <ProfilePictureRotate duration="4s">
@@ -34,7 +43,9 @@ function Home() {
           </p>
         </SlideFromRight>
         <SlideButton delay="3s" duration="2s">
-          <StyledButton>To portfolio</StyledButton>
+          <StyledButton onClick={toMain}>
+            To portfolio <FontAwesomeIcon icon={solid("arrow-right")} />
+          </StyledButton>
         </SlideButton>
       </AboutMe>
     </HomeWrapper>
@@ -42,27 +53,6 @@ function Home() {
 }
 
 export default Home;
-
-const HomeWrapper = styled.div`
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-image: linear-gradient(to right, rgb(42, 13, 40), rgb(6, 13, 40));
-  color: white;
-  width: 75%;
-  margin: auto;
-  padding: 2em;
-  gap: 2em;
-
-  @media ${device.laptop} {
-    justify-content: flex-start;
-    padding: 0px;
-    flex-wrap: nowrap;
-    flex-direction: column;
-    width: 100%;
-  }
-`;
 
 const PortraitImage = styled.img`
   max-width: 30em;

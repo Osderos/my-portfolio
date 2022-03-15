@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../utils/mediaQueries";
 
 export const StyledButton = styled.button`
   background-color: transparent;
@@ -17,3 +18,18 @@ export const StyledButton = styled.button`
     box-shadow:0px 2px 2px white;
   }
 `;
+
+export const BurgerButton=styled.button`
+  cursor: pointer;
+  background-color: transparent;
+  border: 2px solid #c70039;
+  color: #c70039;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: 16px;
+  display: none;
+
+  @media ${device.tablet}{
+    display: block;
+  }
+`
