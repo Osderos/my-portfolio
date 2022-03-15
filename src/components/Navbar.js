@@ -29,7 +29,6 @@ function Navbar() {
           <BurgerButton onClick={handleToggle}>
             <FontAwesomeIcon icon={solid("bars")} />
           </BurgerButton>
-
           <NavigationMenu value={navbarOpen ? "block" : "none"}>
             <li>Home</li>
             <li>About</li>
