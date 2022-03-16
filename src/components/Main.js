@@ -3,6 +3,7 @@ import {MainWrapper} from "../components/Containers/Container";
 import { SlideFromTop } from "../components/Animations/Slide";
 import Navbar from "./Navbar";
 import AboutMe from "./AboutMe";
+import Portfolio from "./Portfolio";
 
 function Main() {
   return (
@@ -10,6 +11,7 @@ function Main() {
       <MainWrapper>
         <Navbar />
         <AboutMe/>
+        <Portfolio/>
       </MainWrapper>
     </SlideFromTop>
   );

@@ -1,4 +1,4 @@
-import { HomeWrapper, MainWrapper } from "./Container.styles";
+import { HomeWrapper, MainWrapper, Container } from "./Container.styles";
 
 export default HomeWrapper
-export {MainWrapper}
+export {MainWrapper, Container}

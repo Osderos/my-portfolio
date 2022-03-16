@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { device } from "../utils/mediaQueries";
+import {Container} from '../components/Containers/Container'
 
 function AboutMe() {
   return (
@@ -41,17 +42,6 @@ function AboutMe() {
 
 export default AboutMe;
 
-const Container = styled.div`
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-
-  @media ${device.tablet}{
-      flex-direction: column;
-      align-items: center;
-  }
-`;
-
 const Description = styled.div`
   width: 50%;
   padding: 1rem;
@@ -64,11 +54,12 @@ const Description = styled.div`
     font-family: "Rubik", sans-serif;
     font-size: 18px;
     word-spacing: 2px;
+    font-style: italic;
   }
 
-  @media ${device.tablet}{
-   width: 75%;
-   padding-top: 10px;
+  @media ${device.tablet} {
+    width: 75%;
+    padding-top: 10px;
   }
 `;
 const Skillset = styled.div`
@@ -81,7 +72,7 @@ const Skillset = styled.div`
   i {
     font-size: 28px;
   }
-  h3{
-      font-family: "Audiowide";
+  h3 {
+    font-family: "Audiowide";
   }
 `;

@@ -1,6 +1,18 @@
 import styled from "styled-components";
 import { device } from "../../utils/mediaQueries";
 
+export const Container = styled.div`
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-top: 50px;
+
+  @media ${device.tablet}{
+      flex-direction: column;
+      align-items: center;
+  }
+`;
+
 export const HomeWrapper = styled.div`
   min-height: 100vh;
   display: flex;
