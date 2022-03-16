@@ -7,10 +7,16 @@ export const Container = styled.div`
   align-items: flex-start;
   margin-top: 50px;
 
-  @media ${device.tablet}{
-      flex-direction: column;
-      align-items: center;
+  @media ${device.tablet} {
+    flex-direction: column;
+    align-items: center;
   }
+`;
+
+export const PortfolioContainer = styled(Container)`
+  justify-content: center;
+  align-items: center;
+  height:400px;
 `;
 
 export const HomeWrapper = styled.div`
@@ -38,7 +44,7 @@ export const MainWrapper = styled(HomeWrapper)`
   min-height: 30px;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 
   @media ${device.laptop} {
     justify-content: flex-start;
