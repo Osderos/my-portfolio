@@ -6,6 +6,7 @@ export const Container = styled.div`
   justify-content: space-around;
   align-items: flex-start;
   margin-top: 50px;
+  
 
   @media ${device.tablet} {
     flex-direction: column;

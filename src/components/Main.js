@@ -4,6 +4,7 @@ import { SlideFromTop } from "../components/Animations/Slide";
 import Navbar from "./Navbar";
 import AboutMe from "./AboutMe";
 import Portfolio from "./Portfolio";
+import Contact from "./Contact";
 
 function Main() {
   return (
@@ -12,6 +13,7 @@ function Main() {
         <Navbar />
         <AboutMe/>
         <Portfolio/>
+        <Contact/>
       </MainWrapper>
     </SlideFromTop>
   );
