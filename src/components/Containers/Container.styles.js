@@ -17,6 +17,8 @@ export const PortfolioContainer = styled(Container)`
   justify-content: center;
   align-items: center;
   height:400px;
+  margin-bottom: 200px;
+  padding-top: 200px;
 `;
 
 export const HomeWrapper = styled.div`
@@ -52,5 +54,26 @@ export const MainWrapper = styled(HomeWrapper)`
     flex-wrap: nowrap;
     flex-direction: column;
     width: 100%;
+  }
+`;
+
+export const Description = styled.div`
+  width: 50%;
+  padding: 1rem;
+  color: white;
+  border-width: 3px;
+  border-style: solid;
+  border-image: linear-gradient(to bottom, #c70039, rgba(0, 0, 0, 0)) 1 100%;
+
+  p {
+    font-family: "Rubik", sans-serif;
+    font-size: 18px;
+    word-spacing: 2px;
+    font-style: italic;
+  }
+
+  @media ${device.tablet} {
+    width: 75%;
+    padding-top: 10px;
   }
 `;
