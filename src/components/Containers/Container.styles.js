@@ -6,18 +6,18 @@ export const Container = styled.div`
   justify-content: space-around;
   align-items: flex-start;
   margin-top: 50px;
-  
 
   @media ${device.tablet} {
     flex-direction: column;
     align-items: center;
+    justify-content: center;
   }
 `;
 
 export const PortfolioContainer = styled(Container)`
   justify-content: center;
   align-items: center;
-  height:400px;
+  height: 400px;
   margin-bottom: 200px;
   padding-top: 200px;
 `;
@@ -73,8 +73,18 @@ export const Description = styled.div`
     font-style: italic;
   }
 
+  a {
+    transition: all 0.5s ease;
+    color: #c70039;
+    text-decoration: none;
+    &:hover {
+      cursor: pointer;
+      color: #ffc300;
+      transform: translateY(-2px);
+    }
+  }
+
   @media ${device.tablet} {
-    width: 75%;
     padding-top: 10px;
   }
 `;

@@ -4,9 +4,14 @@ import { device } from "../utils/mediaQueries";
 import { BurgerButton } from "../components/Button/Button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const [navbarOpen, setNavbarOpen] = useState(false);
+
+  const navigate = useNavigate();
+
+  const toHome = () => navigate("/");
 
   const handleToggle = () => {
     setNavbarOpen(!navbarOpen);
@@ -15,12 +20,16 @@ function Navbar() {
   return (
     <NavigationBar>
       <AccesGroup>
-        <i className="devicon-github-original"></i>
-        <i className="devicon-linkedin-plain"></i>
+        <a href="https://github.com/Osderos">
+          <i className="devicon-github-original"></i>
+        </a>
+        <a href="https://www.linkedin.com/feed/">
+          <i className="devicon-linkedin-plain"></i>
+        </a>
       </AccesGroup>
       <AccesGroup>
         <NavGroup>
-          <span>Home</span>
+          <span onClick={toHome}>Home</span>
           <span>About</span>
           <span>Projects</span>
           <span>Contact</span>
@@ -30,7 +39,7 @@ function Navbar() {
             <FontAwesomeIcon icon={solid("bars")} />
           </BurgerButton>
           <NavigationMenu value={navbarOpen ? "block" : "none"}>
-            <li>Home</li>
+            <li onClick={toHome}>Home</li>
             <li>About</li>
             <li>Projects</li>
             <li>Contact</li>
@@ -51,6 +60,8 @@ const NavigationBar = styled.nav`
   font-size: 24px;
   color: white;
   padding: 10px;
+ 
+  
 
   @media ${device.laptop} {
     justify-content: space-around;
@@ -65,7 +76,8 @@ const AccesGroup = styled.div`
   align-items: center;
 
   i,
-  span {
+  span,
+  a {
     font-size: 28px;
     transition: all 0.5s ease;
     &:hover {
@@ -73,6 +85,11 @@ const AccesGroup = styled.div`
       color: #ffc300;
       transform: translateY(-2px);
     }
+  }
+
+  a {
+    color: #c70039;
+    text-decoration: none;
   }
 `;
 
