@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Container } from "../components/Containers/Container";
 import uniqid from "uniqid";
 import db from "../firebase";
@@ -6,6 +6,8 @@ import { addDoc, collection } from "firebase/firestore";
 import styled from "styled-components";
 import StyledButton from "../components/Button/Button";
 import { device } from "../utils/mediaQueries";
+import { SlideButton } from "../components/Animations/Slide";
+import { FadeOut } from "../components/Animations/Fade";
 
 function Contact() {
   const [visitorMsj, setVisitorMsj] = useState({
@@ -15,9 +17,9 @@ function Contact() {
   });
   const [showModal, setShowModal] = useState(false);
 
-  useEffect(()=>{
+  useEffect(() => {
     console.log(showModal);
-  },[showModal])
+  }, [showModal]);
 
   const handleInput = (e) => {
     const { value, name } = e.target;
@@ -35,10 +37,7 @@ function Contact() {
       })
     );
     toggleModal();
-    setTimeout(() => {
-      toggleModal();
-    }, 2000);
-    
+    messageTimer();
   };
 
   const sendToDb = async () => {
@@ -50,15 +49,35 @@ function Contact() {
     setShowModal(!showModal);
   };
 
+  const messageTimer = () => {
+    setTimeout(toNull, 2000);
+  };
+
+  const toNull = () => {
+    setShowModal(null);
+  };
+
+  const messageBox = () => {
+    if (showModal === true) {
+      return (
+        <FadeOut>
+          <MessageBox>
+            <SlideButton>
+              <h1>Thank you for the submit!</h1>
+            </SlideButton>
+          </MessageBox>
+        </FadeOut>
+      );
+    } else {
+      return null;
+    }
+  };
+
   return (
     <Container>
-      {showModal ? (
-        <div>
-          <h1>Thank you for the submit!</h1>
-        </div>
-      ) : ('')}
+      {messageBox()}
       <ContactGroup>
-        <h3>Contact</h3>
+        <h3 id="contact">Contact</h3>
         <p>
           Please get in touch if you think our work could be mutually beneficial
         </p>
@@ -75,6 +94,7 @@ function Contact() {
               value={visitorMsj.name}
               onChange={handleInput}
               minLength="10"
+              required={true}
             />
           </ContactGroup>
           <ContactGroup>
@@ -87,6 +107,7 @@ function Contact() {
               value={visitorMsj.msj}
               onChange={handleInput}
               minLength="10"
+              required={true}
             ></textarea>
           </ContactGroup>
           <StyledButton
@@ -143,5 +164,21 @@ const ContactGroup = styled.div`
   @media ${device.tablet} {
     align-items: center;
     margin-left: 5em;
+  }
+`;
+
+const MessageBox = styled.div`
+  position: absolute;
+  left: 50%;
+  top: 75%;
+  transform: translate(-50%, -50%);
+  background-color: #ffc300;
+  padding: 10px;
+  border-radius: 10px;
+  opacity: 0.8;
+  background-image: linear-gradient(to bottom, #c70039, rgba(0, 0, 0, 0));
+  border: 2px solid white;
+  h1 {
+    font-family: "Rubik";
   }
 `;

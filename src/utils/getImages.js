@@ -15,3 +15,15 @@ export const getImages = async (numberOfImages) => {
   }
   return imagesPool;
 };
+
+export const getProfilePic = async () => {
+  try {
+    const storage = getStorage();
+    const referance = ref(storage, "/ProfilePic.jpg");
+    const profilePic = await getDownloadURL(referance);
+
+    return profilePic;
+  } catch (err) {
+    console.log(err);
+  }
+};

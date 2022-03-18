@@ -29,20 +29,32 @@ function Navbar() {
       </AccesGroup>
       <AccesGroup>
         <NavGroup>
-          <span onClick={toHome}>Home</span>
-          <span>About</span>
-          <span>Projects</span>
-          <span>Contact</span>
+          <a><span onClick={toHome}>Home</span></a>
+          <a href="#about">
+            <span>About</span>
+          </a>
+          <a href="#projects">
+            <span>Projects</span>
+          </a>
+          <a href="#contact">
+            <span>Contact</span>
+          </a>
         </NavGroup>
         <Dropdown>
           <BurgerButton onClick={handleToggle}>
             <FontAwesomeIcon icon={solid("bars")} />
           </BurgerButton>
           <NavigationMenu value={navbarOpen ? "block" : "none"}>
-            <li onClick={toHome}>Home</li>
-            <li>About</li>
-            <li>Projects</li>
-            <li>Contact</li>
+            <a><li onClick={toHome}>Home</li></a>
+            <a href="#about">
+              <li>About</li>
+            </a>
+            <a href="#projects">
+              <li>Projects</li>
+            </a>
+            <a href="#contact">
+              <li>Contact</li>
+            </a>
           </NavigationMenu>
         </Dropdown>
       </AccesGroup>
@@ -60,8 +72,6 @@ const NavigationBar = styled.nav`
   font-size: 24px;
   color: white;
   padding: 10px;
- 
-  
 
   @media ${device.laptop} {
     justify-content: space-around;
@@ -88,7 +98,7 @@ const AccesGroup = styled.div`
   }
 
   a {
-    color: #c70039;
+    color: white;
     text-decoration: none;
   }
 `;
@@ -104,6 +114,10 @@ const NavigationMenu = styled.ul`
   z-index: 9;
   color: #c70039;
   padding: 5px;
+  a {
+    color: white;
+    text-decoration: none;
+  }
 `;
 
 const NavGroup = styled.div`

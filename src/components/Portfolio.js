@@ -27,7 +27,7 @@ function Portfolio() {
 
   return (
     <PortfolioContainer>
-        <Carusel prevSlide={prevSlide} nextSlide={nextSlide} current={current} length={length} images={images}/>
+        <Carusel  prevSlide={prevSlide} nextSlide={nextSlide} current={current} length={length} images={images}/>
     </PortfolioContainer>
   );
 }

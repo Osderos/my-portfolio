@@ -7,7 +7,7 @@ function AboutMe() {
   return (
     <Container>
       <Description>
-        <p>
+        <p id='about'>
           I am currently a mechanical engineer with over 7 years of experience
           in the automotive industry. Being passionate about design and tech in
           general and always opened to learn new skills and abilities , I have

@@ -8,7 +8,7 @@ import {device} from '../utils/mediaQueries'
 
 function Carusel(props) {
   return (
-    <div
+    <div id='projects'
       style={{
         display: "flex",
         flexDirection: "column",

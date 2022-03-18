@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import Image from "../dummyPortrait.jpg";
-import StyledButton from "../components/Button/Button"
+import StyledButton from "../components/Button/Button";
 import HomeWrapper from "./Containers/Container";
 import { device } from "../utils/mediaQueries";
 import {
@@ -13,16 +12,25 @@ import {
 } from "./Animations/Slide";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { solid } from "@fortawesome/fontawesome-svg-core/import.macro";
+import { getProfilePic } from "../utils/getImages";
 
 function Home() {
+  const [profilePic, setProfilePic] = useState("");
   const navigate = useNavigate();
 
   const toMain = () => navigate("/main");
 
+  useEffect(() => {
+    const loadImage = async () => {
+      setProfilePic(await getProfilePic());
+    };
+    loadImage();
+  }, []);
+
   return (
     <HomeWrapper>
       <ProfilePictureRotate duration="4s">
-        <PortraitImage src={Image} alt="myPicture"></PortraitImage>
+        <PortraitImage src={profilePic} alt="myPicture"></PortraitImage>
       </ProfilePictureRotate>
       <AboutMe>
         <SlideFromTop duration="2s">
